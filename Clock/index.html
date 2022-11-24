@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock</title>
+    <style>
+      #clockContainer {
+        position: relative;
+        height: 40vw;
+        width: 40vw;
+        background-image: url("clock.png");
+        background-repeat: no-repeat;
+        
+        margin: auto;
+        background-size: 100%;
+      }
+      #hour,
+      #min,
+      #sec {
+        position: absolute;
+        background-color: rgb(0, 0, 0);
+        border-radius: 10px;
+      }
+      #hour {
+        width: 2%;
+        height: 23%;
+        top: 27%;
+        left: 49%;
+        transform-origin: bottom;
+      }
+      #min {
+        width: 2%;
+        height: 31%;
+        top: 19%;
+        left: 49%;
+        transform-origin: bottom;
+      }
+      #sec {
+        height: 37%;
+        width: 2%;
+        top: 13%;
+        left: 49%;
+        transform-origin: bottom;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="clockContainer">
+      <div id="hour"></div>
+      <div id="min"></div>
+      <div id="sec"></div>
+    </div>
+    <script>
+      setInterval(() => {
+          d=new Date();
+          let hTime=d.getHours();
+          let mTime=d.getMinutes();
+          let sTime=d.getSeconds();
+          hrotation=30*hTime+mTime/2;
+          mrotation=6*mTime;
+          srotation=6*sTime;
+          hour.style.transform=`rotate(${hrotation}deg)`;
+          min.style.transform=`rotate(${mrotation}deg)`;
+          sec.style.transform=`rotate(${srotation}deg)`;
+
+      },1000);
+    </script>
+  </body>
+</html>
